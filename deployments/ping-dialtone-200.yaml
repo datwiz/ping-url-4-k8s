@@ -1,0 +1,22 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  namespace: default
+  name: ping-dialtone-200
+spec:
+  replicas: 2
+  template:
+    metadata:
+      name: ping-dialtone-200
+      labels:
+        app: ping-dialtone-200
+    spec:
+      containers:
+      - name: ping-dialtone-200
+        image: ping-url:latest
+        imagePullPolicy: IfNotPresent
+        env:
+        - name: TRGT_URL
+          value: "http://websvc-dialtone:9292"
+        - name: INTERVAL
+          value: "2"

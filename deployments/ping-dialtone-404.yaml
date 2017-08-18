@@ -1,0 +1,22 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  namespace: default
+  name: ping-dialtone-404
+spec:
+  replicas: 2
+  template:
+    metadata:
+      name: ping-dialtone-404
+      labels:
+        app: ping-dialtone-404
+    spec:
+      containers:
+      - name: ping-dialtone-404
+        image: ping-url:latest
+        imagePullPolicy: IfNotPresent
+        env:
+        - name: TRGT_URL
+          value: "http://websvc-dialtone:9292/missing"
+        - name: INTERVAL
+          value: "2"

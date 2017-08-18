@@ -4,8 +4,8 @@
 # INTERVAL
 
 if [ -z ${TRGT_URL} ] || [ -z ${INTERVAL} ]; then
-  echo "ERROR:  check-url.sh requires TRGT_URL and INTERVAL env vars to be set."
-  echo "Usage: check a url TRGT_URL every INTERVAL seconds"
+  echo "ERROR: ping-url.sh requires TRGT_URL and INTERVAL env vars to be set."
+  echo "Usage: ping a url TRGT_URL every INTERVAL seconds"
   exit 1
 fi
 
